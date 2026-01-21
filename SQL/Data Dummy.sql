@@ -5,7 +5,7 @@ INSERT INTO kategori (id_kategori, nama_kategori) VALUES
 (15,'Rok'),(16,'Outer'),(17,'Vest'),(18,'Overall'),
 (19,'Crop Top'),(20,'Tank Top');
 
-INSERT INTO size (id_size, nama_size) VALUES
+INSERT INTO size (id_size, ukuran) VALUES
 (1,'XS'),(2,'S'),(3,'M'),(4,'L'),(5,'XL'),
 (6,'XXL'),(7,'3XL'),(8,'SS'),
 (9,'SM'),(10,'SL'),
@@ -14,7 +14,7 @@ INSERT INTO size (id_size, nama_size) VALUES
 (15,'K-S'),(16,'K-M'),(17,'K-L'),
 (18,'FS'),(19,'PT'),(20,'TL');
 
-INSERT INTO supplier (id_supplier, nama_supplier, kontak, alamat) VALUES
+INSERT INTO supplier (id_supplier, nama_supplier, telepon, alamat) VALUES
 (1,'PT Sumber Textile','0811111111','Bandung'),
 (2,'CV Kain Nusantara','0811111112','Jakarta'),
 (3,'PT Fashion Indo','0811111113','Tangerang'),
@@ -36,7 +36,7 @@ INSERT INTO supplier (id_supplier, nama_supplier, kontak, alamat) VALUES
 (19,'PT Young Fashion','0811111129','Jakarta'),
 (20,'CV Smart Textile','0811111130','Tangerang');
 
-INSERT INTO karyawan (id_karyawan, nama, jabatan) VALUES
+INSERT INTO karyawan (id_karyawan, nama_karyawan, jabatan) VALUES
 (1,'Andi','Kasir'),
 (2,'Budi','Kasir'),
 (3,'Citra','Admin'),
@@ -59,27 +59,27 @@ INSERT INTO karyawan (id_karyawan, nama, jabatan) VALUES
 (20,'Yuni','Manajer');
 
 INSERT INTO gaji 
-(id_karyawan, gaji_pokok, tunjangan, potongan, total_gaji, periode_gaji) VALUES
-(1, 3000000, 500000, 0, 3500000, '2025-01'),
-(2, 3000000, 500000, 0, 3500000, '2025-01'),
-(3, 4000000, 500000, 0, 4500000, '2025-01'),
-(4, 3500000, 500000, 0, 4000000, '2025-01'),
-(5, 6500000, 500000, 0, 7000000, '2025-01'),
-(6, 3000000, 500000, 0, 3500000, '2025-01'),
-(7, 4000000, 500000, 0, 4500000, '2025-01'),
-(8, 3500000, 500000, 0, 4000000, '2025-01'),
-(9, 3000000, 500000, 0, 3500000, '2025-01'),
-(10, 4000000, 500000, 0, 4500000, '2025-01'),
-(11, 3000000, 500000, 0, 3500000, '2025-01'),
-(12, 3500000, 500000, 0, 4000000, '2025-01'),
-(13, 3000000, 500000, 0, 3500000, '2025-01'),
-(14, 4000000, 500000, 0, 4500000, '2025-01'),
-(15, 3500000, 500000, 0, 4000000, '2025-01'),
-(16, 3000000, 500000, 0, 3500000, '2025-01'),
-(17, 4000000, 500000, 0, 4500000, '2025-01'),
-(18, 3500000, 500000, 0, 4000000, '2025-01'),
-(19, 3000000, 500000, 0, 3500000, '2025-01'),
-(20, 6500000, 500000, 0, 7000000, '2025-01');
+(id_karyawan, bulan, tahun, jumlah_gaji, tanggal_pembayaran) VALUES
+(1, 'Januari', 2025, 3500000, '2025-01-31'),
+(2, 'Januari', 2025, 3500000, '2025-01-31'),
+(3, 'Januari', 2025, 4500000, '2025-01-31'),
+(4, 'Januari', 2025, 4000000, '2025-01-31'),
+(5, 'Januari', 2025, 7000000, '2025-01-31'),
+(6, 'Januari', 2025, 3500000, '2025-01-31'),
+(7, 'Januari', 2025, 4500000, '2025-01-31'),
+(8, 'Januari', 2025, 4000000, '2025-01-31'),
+(9, 'Januari', 2025, 3500000, '2025-01-31'),
+(10, 'Januari', 2025, 4500000, '2025-01-31'),
+(11, 'Januari', 2025, 3500000, '2025-01-31'),
+(12, 'Januari', 2025, 4000000, '2025-01-31'),
+(13, 'Januari', 2025, 3500000, '2025-01-31'),
+(14, 'Januari', 2025, 4500000, '2025-01-31'),
+(15, 'Januari', 2025, 4000000, '2025-01-31'),
+(16, 'Januari', 2025, 3500000, '2025-01-31'),
+(17, 'Januari', 2025, 4500000, '2025-01-31'),
+(18, 'Januari', 2025, 4000000, '2025-01-31'),
+(19, 'Januari', 2025, 3500000, '2025-01-31'),
+(20, 'Januari', 2025, 7000000, '2025-01-31');
 
 INSERT INTO produk 
 (id_produk, nama_produk, harga, stok, id_supplier, id_kategori, id_size) VALUES
@@ -104,50 +104,51 @@ INSERT INTO produk
 (19,'Short Pants',110000,90,19,14,3),
 (20,'Blazer Formal',300000,20,20,6,4);
 
-INSERT INTO customer (nama, no_hp, email, alamat) VALUES
-('Ali Pratama','0819000001','ali@mail.com','Jakarta'),
-('Bima Saputra','0819000002','bima@mail.com','Bandung'),
-('Cindy Lestari','0819000003','cindy@mail.com','Bekasi'),
-('Doni Kurniawan','0819000004','doni@mail.com','Depok'),
-('Evi Handayani','0819000005','evi@mail.com','Bogor'),
-('Farah Azzahra','0819000006','farah@mail.com','Tangerang'),
-('Gina Amelia','0819000007','gina@mail.com','Jakarta'),
-('Hadi Santoso','0819000008','hadi@mail.com','Bandung'),
-('Ira Wulandari','0819000009','ira@mail.com','Bekasi'),
-('Jani Maulana','0819000010','jani@mail.com','Depok'),
-('Kiki Rahman','0819000011','kiki@mail.com','Bogor'),
-('Lukman Hakim','0819000012','lukman@mail.com','Solo'),
-('Mega Puspita','0819000013','mega@mail.com','Yogyakarta'),
-('Nando Prڍatama','0819000014','nando@mail.com','Semarang'),
-('Ocha Permata','0819000015','ocha@mail.com','Surabaya'),
-('Putri Ayu','0819000016','putri@mail.com','Malang'),
-('Raka Wijaya','0819000017','raka@mail.com','Jakarta'),
-('Sinta Maharani','0819000018','sinta@mail.com','Bandung'),
-('Taufik Hidayat','0819000019','taufik@mail.com','Bekasi'),
-('Vina Lestari','0819000020','vina@mail.com','Depok');
+INSERT INTO customer 
+(nama_customer, alamat, telepon, email, tanggal_lahir, jenis_customer) VALUES
+('Ali Pratama','Jakarta','0819000001','ali@mail.com','1995-03-12','Online'),
+('Bima Saputra','Bandung','0819000002','bima@mail.com','1994-07-21','Offline'),
+('Cindy Lestari','Bekasi','0819000003','cindy@mail.com','1996-01-10','Both'),
+('Doni Kurniawan','Depok','0819000004','doni@mail.com','1993-11-05','Online'),
+('Evi Handayani','Bogor','0819000005','evi@mail.com','1997-02-18','Offline'),
+('Farah Azzahra','Tangerang','0819000006','farah@mail.com','1998-08-09','Both'),
+('Gina Amelia','Jakarta','0819000007','gina@mail.com','1995-05-30','Online'),
+('Hadi Santoso','Bandung','0819000008','hadi@mail.com','1992-12-14','Offline'),
+('Ira Wulandari','Bekasi','0819000009','ira@mail.com','1996-06-25','Both'),
+('Jani Maulana','Depok','0819000010','jani@mail.com','1994-04-17','Online'),
+('Kiki Rahman','Bogor','0819000011','kiki@mail.com','1993-09-02','Offline'),
+('Lukman Hakim','Solo','0819000012','lukman@mail.com','1991-01-29','Both'),
+('Mega Puspita','Yogyakarta','0819000013','mega@mail.com','1997-10-11','Online'),
+('Nando Pratama','Semarang','0819000014','nando@mail.com','1995-07-07','Offline'),
+('Ocha Permata','Surabaya','0819000015','ocha@mail.com','1998-03-03','Both'),
+('Putri Ayu','Malang','0819000016','putri@mail.com','1996-12-20','Online'),
+('Raka Wijaya','Jakarta','0819000017','raka@mail.com','1994-08-08','Offline'),
+('Sinta Maharani','Bandung','0819000018','sinta@mail.com','1997-05-16','Both'),
+('Taufik Hidayat','Bekasi','0819000019','taufik@mail.com','1993-02-27','Online'),
+('Vina Lestari','Depok','0819000020','vina@mail.com','1998-09-19','Offline');
 
-INSERT INTO penjualan 
-(id_customer, id_karyawan, metode_penjualan, total, status) VALUES
-(1, 1, 'Offline', 0, 'Selesai'),
-(2, NULL, 'Online', 0, 'Diproses'),
-(3, 2, 'Offline', 0, 'Selesai'),
-(4, NULL, 'Online', 0, 'Dikirim'),
-(5, 3, 'Offline', 0, 'Selesai'),
-(6, NULL, 'Online', 0, 'Diproses'),
-(7, 4, 'Offline', 0, 'Selesai'),
-(8, NULL, 'Online', 0, 'Dikirim'),
-(9, 5, 'Offline', 0, 'Selesai'),
-(10, NULL, 'Online', 0, 'Diproses'),
-(11, 6, 'Offline', 0, 'Selesai'),
-(12, NULL, 'Online', 0, 'Dikirim'),
-(13, 7, 'Offline', 0, 'Selesai'),
-(14, NULL, 'Online', 0, 'Diproses'),
-(15, 8, 'Offline', 0, 'Selesai'),
-(16, NULL, 'Online', 0, 'Dikirim'),
-(17, 9, 'Offline', 0, 'Selesai'),
-(18, NULL, 'Online', 0, 'Diproses'),
-(19, 10, 'Offline', 0, 'Selesai'),
-(20, NULL, 'Online', 0, 'Dikirim');
+INSERT INTO penjualan
+(id_customer, id_karyawan, tanggal_penjualan, total_harga, jenis_transaksi, status, catatan) VALUES
+(1, 1, '2025-01-05', 1500000, 'Offline', 'Selesai', NULL),
+(2, NULL, '2025-01-06', 750000, 'Online', 'Proses', 'Menunggu pembayaran'),
+(3, 2, '2025-01-07', 2200000, 'Offline', 'Selesai', NULL),
+(4, NULL, '2025-01-08', 1250000, 'Online', 'Proses', 'Pesanan sedang diproses'),
+(5, 3, '2025-01-09', 1800000, 'Offline', 'Selesai', NULL),
+(6, NULL, '2025-01-10', 900000, 'Online', 'Proses', NULL),
+(7, 4, '2025-01-11', 2500000, 'Offline', 'Selesai', NULL),
+(8, NULL, '2025-01-12', 1600000, 'Online', 'Proses', 'Alamat perlu konfirmasi'),
+(9, 5, '2025-01-13', 1400000, 'Offline', 'Selesai', NULL),
+(10, NULL, '2025-01-14', 1100000, 'Online', 'Proses', NULL),
+(11, 6, '2025-01-15', 1950000, 'Offline', 'Selesai', NULL),
+(12, NULL, '2025-01-16', 1300000, 'Online', 'Proses', NULL),
+(13, 7, '2025-01-17', 2100000, 'Offline', 'Selesai', NULL),
+(14, NULL, '2025-01-18', 1700000, 'Online', 'Proses', NULL),
+(15, 8, '2025-01-19', 1600000, 'Offline', 'Selesai', NULL),
+(16, NULL, '2025-01-20', 1450000, 'Online', 'Proses', NULL),
+(17, 9, '2025-01-21', 2300000, 'Offline', 'Selesai', NULL),
+(18, NULL, '2025-01-22', 1200000, 'Online', 'Proses', NULL),
+(19, 10, '2025-01-23', 1750000, 'Offline', 'Selesai', NULL),
+(20, NULL, '2025-01-24', 1550000, 'Online', 'Proses', NULL);
 
 INSERT INTO detail_penjualan
 (id_detail, id_penjualan, id_produk, jumlah) VALUES
@@ -158,37 +159,48 @@ INSERT INTO detail_penjualan
 (19,19,19,3),(20,20,20,1);
 
 INSERT INTO pengiriman
-(id_penjualan, ekspedisi, no_resi, ongkir, status_pengiriman) VALUES
-(2, 'JNE', 'JNE202501002', 20000, 'Dikirim'),
-(4, 'J&T', 'JNT202501004', 18000, 'Diproses'),
-(6, 'SiCepat', 'SCP202501006', 22000, 'Dikirim'),
-(8, 'JNE', 'JNE202501008', 20000, 'Selesai'),
-(10, 'J&T', 'JNT202501010', 18000, 'Dikirim'),
-(12, 'POS Indonesia', 'POS202501012', 15000, 'Diproses'),
-(14, 'JNE', 'JNE202501014', 20000, 'Dikirim'),
-(16, 'SiCepat', 'SCP202501016', 22000, 'Dikirim'),
-(18, 'J&T', 'JNT202501018', 18000, 'Selesai'),
-(20, 'JNE', 'JNE202501020', 20000, 'Diproses');
+(id_penjualan, alamat_pengiriman, kota, kode_pos, nama_penerima, telepon_penerima, 
+ status_pengiriman, no_resi, tanggal_kirim, tanggal_terima) VALUES
+(2, 'Jl. Merdeka No.10', 'Bandung', '40115', 'Bima Saputra', '0819000002',
+ 'Dikirim', 'JNE202501002', '2025-01-07', NULL),
+(4, 'Jl. Raya Depok No.21', 'Depok', '16431', 'Doni Kurniawan', '0819000004',
+ 'Dikemas', 'JNT202501004', '2025-01-09', NULL),
+(6, 'Jl. Pajajaran No.5', 'Bogor', '16128', 'Evi Handayani', '0819000005',
+ 'Dikirim', 'SCP202501006', '2025-01-11', NULL),
+(8, 'Jl. Sudirman No.18', 'Bandung', '40123', 'Hadi Santoso', '0819000008',
+ 'Diterima', 'JNE202501008', '2025-01-13', '2025-01-15'),
+(10, 'Jl. Ahmad Yani No.7', 'Depok', '16415', 'Jani Maulana', '0819000010',
+ 'Dikirim', 'JNT202501010', '2025-01-15', NULL),
+(12, 'Jl. Slamet Riyadi No.12', 'Solo', '57111', 'Lukman Hakim', '0819000012',
+ 'Dikemas', 'POS202501012', '2025-01-17', NULL),
+(14, 'Jl. Pandanaran No.9', 'Semarang', '50241', 'Nando Pratama', '0819000014',
+ 'Dikirim', 'JNE202501014', '2025-01-19', NULL),
+(16, 'Jl. Ijen No.14', 'Malang', '65119', 'Putri Ayu', '0819000016',
+ 'Dikirim', 'SCP202501016', '2025-01-21', NULL),
+(18, 'Jl. Asia Afrika No.20', 'Bandung', '40112', 'Sinta Maharani', '0819000018',
+ 'Diterima', 'JNT202501018', '2025-01-23', '2025-01-25'),
+(20, 'Jl. Pemuda No.3', 'Depok', '16418', 'Vina Lestari', '0819000020',
+ 'Dikemas', 'JNE202501020', '2025-01-25', NULL);
 
 INSERT INTO pembayaran
-(id_penjualan, metode, jumlah_bayar, status_bayar) VALUES
-(1, 'Cash', 150000, 'Lunas'),
-(2, 'Transfer', 200000, 'Lunas'),
-(3, 'Cash', 180000, 'Lunas'),
-(4, 'QRIS', 220000, 'Lunas'),
-(5, 'Cash', 175000, 'Lunas'),
-(6, 'Transfer', 250000, 'Lunas'),
-(7, 'Cash', 220000, 'Lunas'),
-(8, 'COD', 180000, 'Lunas'),
-(9, 'Cash', 160000, 'Lunas'),
-(10, 'Transfer', 120000, 'Lunas'),
-(11, 'Cash', 210000, 'Lunas'),
-(12, 'QRIS', 60000, 'Lunas'),
-(13, 'Cash', 90000, 'Lunas'),
-(14, 'Transfer', 130000, 'Lunas'),
-(15, 'Cash', 260000, 'Lunas'),
-(16, 'COD', 140000, 'Lunas'),
-(17, 'Cash', 190000, 'Lunas'),
-(18, 'Transfer', 155000, 'Lunas'),
-(19, 'Cash', 110000, 'Lunas'),
-(20, 'QRIS', 300000, 'Lunas');
+(id_penjualan, metode_pembayaran, jumlah_pembayaran, status_pembayaran, tanggal_pembayaran, bukti_pembayaran, catatan) VALUES
+(1, 'COD', 150000, 'Lunas', '2025-01-05', NULL, 'Pembayaran tunai saat transaksi'),
+(2, 'Transfer', 200000, 'Lunas', '2025-01-06', 'bukti_transfer_2.jpg', NULL),
+(3, 'COD', 180000, 'Lunas', '2025-01-07', NULL, 'Pembayaran tunai'),
+(4, 'QRIS', 220000, 'Lunas', '2025-01-08', 'bukti_qris_4.png', NULL),
+(5, 'COD', 175000, 'Lunas', '2025-01-09', NULL, NULL),
+(6, 'Transfer', 250000, 'Lunas', '2025-01-10', 'bukti_transfer_6.jpg', NULL),
+(7, 'COD', 220000, 'Lunas', '2025-01-11', NULL, NULL),
+(8, 'COD', 180000, 'Lunas', '2025-01-12', NULL, 'Bayar saat barang diterima'),
+(9, 'COD', 160000, 'Lunas', '2025-01-13', NULL, NULL),
+(10, 'Transfer', 120000, 'Lunas', '2025-01-14', 'bukti_transfer_10.jpg', NULL),
+(11, 'COD', 210000, 'Lunas', '2025-01-15', NULL, NULL),
+(12, 'QRIS', 60000, 'Lunas', '2025-01-16', 'bukti_qris_12.png', NULL),
+(13, 'COD', 90000, 'Lunas', '2025-01-17', NULL, NULL),
+(14, 'Transfer', 130000, 'Lunas', '2025-01-18', 'bukti_transfer_14.jpg', NULL),
+(15, 'COD', 260000, 'Lunas', '2025-01-19', NULL, NULL),
+(16, 'COD', 140000, 'Lunas', '2025-01-20', NULL, NULL),
+(17, 'COD', 190000, 'Lunas', '2025-01-21', NULL, NULL),
+(18, 'Transfer', 155000, 'Lunas', '2025-01-22', 'bukti_transfer_18.jpg', NULL),
+(19, 'COD', 110000, 'Lunas', '2025-01-23', NULL, NULL),
+(20, 'QRIS', 300000, 'Lunas', '2025-01-24', 'bukti_qris_20.png', NULL);

@@ -1,6 +1,6 @@
 -- Membuat indeks pada kolom yang sering dicari
 CREATE INDEX idx_nama_produk ON produk(nama_produk);
-CREATE INDEX idx_nama_customer ON customer(nama);
+CREATE INDEX idx_nama_customer ON customer(nama_customer);
 
 -- Indeks pada Foreign Key biasanya sudah dibuat otomatis, 
 -- tapi tidak ada salahnya memastikannya atau membuatnya secara eksplisit

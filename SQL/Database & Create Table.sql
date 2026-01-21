@@ -1,8 +1,6 @@
--- 1. CREATE DATABASE & USE
 CREATE DATABASE jual_baju;
 USE jual_baju;
 
--- 2. TABLE: kategori
 CREATE TABLE kategori (
     id_kategori INT AUTO_INCREMENT PRIMARY KEY,
     nama_kategori VARCHAR(50) NOT NULL,
@@ -10,14 +8,12 @@ CREATE TABLE kategori (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- 3. TABLE: size
 CREATE TABLE size (
     id_size INT AUTO_INCREMENT PRIMARY KEY,
     ukuran VARCHAR(10) NOT NULL,
     keterangan VARCHAR(50)
 );
 
--- 4. TABLE: supplier
 CREATE TABLE supplier (
     id_supplier INT AUTO_INCREMENT PRIMARY KEY,
     nama_supplier VARCHAR(100) NOT NULL,
@@ -27,7 +23,6 @@ CREATE TABLE supplier (
     kontak_person VARCHAR(100)
 );
 
--- 5. TABLE: karyawan
 CREATE TABLE karyawan (
     id_karyawan INT AUTO_INCREMENT PRIMARY KEY,
     nama_karyawan VARCHAR(100) NOT NULL,
@@ -39,7 +34,6 @@ CREATE TABLE karyawan (
     tanggal_bergabung DATE
 );
 
--- 6. TABLE: gaji
 CREATE TABLE gaji (
     id_gaji INT AUTO_INCREMENT PRIMARY KEY,
     id_karyawan INT,
@@ -50,7 +44,6 @@ CREATE TABLE gaji (
     FOREIGN KEY (id_karyawan) REFERENCES karyawan(id_karyawan)
 );
 
--- 7. TABLE: produk
 CREATE TABLE produk (
     id_produk INT AUTO_INCREMENT PRIMARY KEY,
     nama_produk VARCHAR(100) NOT NULL,
@@ -66,7 +59,6 @@ CREATE TABLE produk (
     FOREIGN KEY (id_size) REFERENCES size(id_size)
 );
 
--- 8. TABLE: customer
 CREATE TABLE customer (
     id_customer INT AUTO_INCREMENT PRIMARY KEY,
     nama_customer VARCHAR(100) NOT NULL,
@@ -77,7 +69,6 @@ CREATE TABLE customer (
     jenis_customer ENUM('Online', 'Offline', 'Both') DEFAULT 'Both'
 );
 
--- 9. TABLE: penjualan
 CREATE TABLE penjualan (
     id_penjualan INT AUTO_INCREMENT PRIMARY KEY,
     id_customer INT,
@@ -91,7 +82,6 @@ CREATE TABLE penjualan (
     FOREIGN KEY (id_karyawan) REFERENCES karyawan(id_karyawan)
 );
 
--- 10. TABLE: detail_penjualan
 CREATE TABLE detail_penjualan (
     id_detail INT AUTO_INCREMENT PRIMARY KEY,
     id_penjualan INT,
@@ -103,7 +93,6 @@ CREATE TABLE detail_penjualan (
     FOREIGN KEY (id_produk) REFERENCES produk(id_produk)
 );
 
--- 11. TABLE: pengiriman
 CREATE TABLE pengiriman (
     id_pengiriman INT AUTO_INCREMENT PRIMARY KEY,
     id_penjualan INT,
@@ -119,7 +108,6 @@ CREATE TABLE pengiriman (
     FOREIGN KEY (id_penjualan) REFERENCES penjualan(id_penjualan)
 );
 
--- 12. TABLE: pembayaran
 CREATE TABLE pembayaran (
     id_pembayaran INT AUTO_INCREMENT PRIMARY KEY,
     id_penjualan INT,

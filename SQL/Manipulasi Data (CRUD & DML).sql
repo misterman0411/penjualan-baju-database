@@ -1,16 +1,20 @@
 # CRUD
 # 1.Create
-INSERT INTO customer (nama, no_hp, email, alamat) 
-VALUES ('Rina Wijaya', '0819000021', 'rina@mail.com', 'Tangerang');
+INSERT INTO customer (nama_customer, telepon, email, alamat, jenis_customer)
+VALUES ('Rina Wijaya', '0819000021', 'rina@mail.com', 'Tangerang', 'Offline');
 
-INSERT INTO penjualan (id_customer, id_karyawan, metode_penjualan, total, status, tanggal_penjualan)
-VALUES (21, 1, 'Offline', 75000, 'Selesai', NOW());
+INSERT INTO penjualan
+(id_customer, id_karyawan, tanggal_penjualan, total_harga, jenis_transaksi, status)
+VALUES
+(21, 1, CURDATE(), 75000, 'Offline', 'Selesai');
 
 INSERT INTO detail_penjualan (id_penjualan, id_produk, jumlah)
-VALUES (21, 1, 1);
+VALUES (LAST_INSERT_ID(), 1, 1);
 
-INSERT INTO pembayaran (id_penjualan, metode, jumlah_bayar, status_bayar)
-VALUES (21, 'Cash', 75000, 'Lunas');
+INSERT INTO pembayaran
+(id_penjualan, metode_pembayaran, jumlah_pembayaran, status_pembayaran, tanggal_pembayaran)
+VALUES
+(LAST_INSERT_ID(), 'COD', 75000, 'Lunas', CURDATE());
 
 # 2.Read 
 SELECT 
@@ -25,35 +29,39 @@ JOIN supplier s ON p.id_supplier = s.id_supplier;
 
 # 3.Update
 UPDATE pengiriman 
-SET status_pengiriman = 'Selesai', tanggal_terima = NOW()
+SET 
+    status_pengiriman = 'Diterima',
+    tanggal_terima = CURDATE()
 WHERE id_penjualan = 2;
 
 # 4.Delete
 DELETE FROM customer 
-WHERE id_customer NOT IN (SELECT DISTINCT id_customer FROM penjualan WHERE id_customer IS NOT NULL);
+WHERE id_customer NOT IN (
+    SELECT DISTINCT id_customer FROM penjualan WHERE id_customer IS NOT NULL
+);
 
 # DML
 #1. Laporan Penjualan Lengkap
-SELECT 
-    p.id_penjualan,
-    p.tanggal,
-    c.nama AS nama_customer,
-    k.nama AS nama_karyawan,
-    SUM(dp.jumlah * pr.harga) AS total_transaksi
-FROM penjualan p
-JOIN customer c 
-    ON p.id_customer = c.id_customer
-LEFT JOIN karyawan k 
-    ON p.id_karyawan = k.id_karyawan
-JOIN detail_penjualan dp 
-    ON p.id_penjualan = dp.id_penjualan
-JOIN produk pr 
-    ON dp.id_produk = pr.id_produk
-GROUP BY 
-    p.id_penjualan,
-    p.tanggal,
-    c.nama,
-    k.nama;
+SELECT   
+    p.id_penjualan,  
+    p.tanggal_penjualan,  
+    c.nama_customer AS nama_customer,  
+    k.nama_karyawan AS nama_karyawan,  
+    SUM(dp.jumlah * pr.harga) AS total_transaksi  
+FROM penjualan p  
+JOIN customer c   
+    ON p.id_customer = c.id_customer  
+LEFT JOIN karyawan k   
+    ON p.id_karyawan = k.id_karyawan  
+JOIN detail_penjualan dp   
+    ON p.id_penjualan = dp.id_penjualan  
+JOIN produk pr   
+    ON dp.id_produk = pr.id_produk  
+GROUP BY   
+    p.id_penjualan,  
+    p.tanggal_penjualan,  
+    c.nama_customer,  
+    k.nama_karyawan;
 
 #2. Produk Terlaris
 SELECT 
